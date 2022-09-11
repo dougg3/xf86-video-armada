@@ -169,16 +169,8 @@ static int armada_drm_set_autopaint(ScrnInfoPtr pScrn,
 	drmxv->autopaint_colorkey = !!value;
 	if (value != 0) {
 		RegionEmpty(&drmxv->clipBoxes);
-		return Success;
 	}
-
-	attr = &armada_drm_xv_attributes[attr_colorkey];
-
-	/*
-	 * If autopainting of the colorkey is disabled, should we
-	 * zero the colorkey?  For the time being, we do.
-	 */
-	return attr->set(pScrn, attr, 0, data);
+	return Success;
 }
 
 static int armada_drm_get_autopaint(ScrnInfoPtr pScrn,
