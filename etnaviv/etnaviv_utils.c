@@ -149,7 +149,7 @@ Bool etnaviv_map_gpu(struct etnaviv *etnaviv, struct etnaviv_pixmap *vPix,
 		struct etna_bo *etna_bo;
 
 		etna_bo = etna_bo_from_usermem(etnaviv->conn, bo->ptr,
-					       bo->size);
+					       ALIGN(bo->size, getpagesize()));
 		if (!etna_bo) {
 			xf86DrvMsg(etnaviv->scrnIndex, X_ERROR,
 				   "etnaviv: etna_bo_from_usermem(ptr=%p, size=%zu) failed\n", bo->ptr, bo->size);
