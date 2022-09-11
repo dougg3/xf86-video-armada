@@ -67,7 +67,7 @@ endif
 
 if HAVE_ACCEL_ETNADRM
 etnadrm_gpu_la_LTLIBRARIES = etnadrm_gpu.la
-etnadrm_gpu_la_LDFLAGS = -module -avoid-version
+etnadrm_gpu_la_LDFLAGS = -module -avoid-version -Wl,-z,lazy
 etnadrm_gpu_la_LIBADD = \
 	$(ETNA_COMMON_LIBADD)
 etnadrm_gpu_ladir = @moduledir@/drivers
